@@ -9,6 +9,18 @@ import {
   GET_THUMBNAIL_FAILURE,
   GET_THUMBNAIL_REQUEST,
   GET_THUMBNAIL_SUCCESS,
+  LOGIN_USER_FAILURE,
+  LOGIN_USER_REQUEST,
+  LOGIN_USER_SUCCESS,
+  LOGOUT_USER_FAILURE,
+  LOGOUT_USER_REQUEST,
+  LOGOUT_USER_SUCCESS,
+  POST_USER_FAILURE,
+  POST_USER_REQUEST,
+  POST_USER_SUCCESS,
+  REGISTER_USER_FAILURE,
+  REGISTER_USER_REQUEST,
+  REGISTER_USER_SUCCESS,
 } from "../ActionType/actionType";
 
 // Create quiz in redux store
@@ -122,4 +134,90 @@ export const getSingleQuiz = (title) => (dispatch) => {
     .catch((err) => {
       dispatch(getSingleQuizFailure(err));
     });
+};
+
+export const registerUserRequest = () => {
+  console.log("hello");
+  return {
+    type: REGISTER_USER_REQUEST,
+  };
+};
+export const registerUserSuccess = (user) => {
+  console.log(user, "user");
+  return {
+    type: REGISTER_USER_SUCCESS,
+    payload: user,
+  };
+};
+export const registerUserFailure = (error) => {
+  return {
+    type: REGISTER_USER_FAILURE,
+    payload: error,
+  };
+};
+
+export const loginUserRequest = (user) => {
+  return {
+    type: LOGIN_USER_REQUEST,
+  };
+};
+export const loginUserSuccess = (user) => {
+  console.log(user, "user");
+  return {
+    type: LOGIN_USER_SUCCESS,
+    payload: user,
+  };
+};
+export const loginUserFailure = (error) => {
+  return {
+    type: LOGIN_USER_FAILURE,
+    payload: error,
+  };
+};
+
+export const postUserRequest = () => {
+  return {
+    type: POST_USER_REQUEST,
+  };
+};
+export const postUserSuccess = (user) => {
+  return {
+    type: POST_USER_SUCCESS,
+    payload: user,
+  };
+};
+export const postUserFailure = (error) => {
+  return {
+    type: POST_USER_FAILURE,
+    payload: error,
+  };
+};
+
+export const postUserToServer = (user) => (dispatch) => {
+  dispatch(postUserRequest());
+  axios
+    .post("http://localhost:5000/admin/user", user)
+    .then((res) => {
+      dispatch(postUserSuccess(res.data));
+    })
+    .catch((err) => {
+      dispatch(postUserFailure(err));
+    });
+};
+
+export const logoutUserRequest = () => {
+  return {
+    type: LOGOUT_USER_REQUEST,
+  };
+};
+export const logoutUserSuccess = () => {
+  return {
+    type: LOGOUT_USER_SUCCESS,
+  };
+};
+export const logoutUserFailure = (error) => {
+  return {
+    type: LOGOUT_USER_FAILURE,
+    payload: error,
+  };
 };

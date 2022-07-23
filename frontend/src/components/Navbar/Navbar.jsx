@@ -1,4 +1,12 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
+import { logout } from "../../firebase";
+import {
+  logoutUserFailure,
+  logoutUserRequest,
+  logoutUserSuccess,
+} from "../../Redux/Action/action";
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -7,6 +15,19 @@ export const Navbar = () => {
       setIsOpen(false);
     } else {
       setIsOpen(true);
+    }
+  };
+  const dispatch = useDispatch();
+  const handleLogout = async () => {
+    dispatch(logoutUserRequest());
+
+    try {
+      await logout().then(() => {
+        dispatch(logoutUserSuccess());
+      });
+    } catch (error) {
+      dispatch(logoutUserFailure(error));
+      alert(error);
     }
   };
 
@@ -105,12 +126,17 @@ export const Navbar = () => {
               </div>
             </div>
             <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-              <button className="bg-black hover:bg-violet-600 text-white  py-1 px-4  rounded mr-1 text-sm font-medium">
-                Login
-              </button>
-              <button className="bg-black hover:bg-violet-600 text-white  py-1 px-4  rounded text-sm font-medium">
-                Signup{" "}
-              </button>
+              <Link to={"/login"}>
+                <button className="bg-black hover:bg-violet-600 text-white  py-1 px-4  rounded mr-1 text-sm font-medium">
+                  Login
+                </button>
+              </Link>
+              <Link to={"/register"}>
+                {" "}
+                <button className="bg-black hover:bg-violet-600 text-white  py-1 px-4  rounded text-sm font-medium">
+                  Signup{" "}
+                </button>
+              </Link>
               {/* <!-- Profile dropdown --> */}
               <div className="ml-3 relative">
                 <div>
@@ -177,6 +203,7 @@ export const Navbar = () => {
                     role="menuitem"
                     tabIndex="-1"
                     id="user-menu-item-2"
+                    onClick={handleLogout}
                   >
                     Sign out
                   </a>

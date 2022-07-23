@@ -1,12 +1,11 @@
 import "./App.css";
-import { Home } from "./components/Home/Home";
+import { Home } from "./Pages/Home/Home";
 import { TsParticle } from "./components/Particle/Tsparticle";
 
 function App() {
   return (
     <div className="bg-slate-700">
-            <TsParticle />
-
+      <TsParticle />
       <Home />
     </div>
   );
