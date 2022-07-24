@@ -7,16 +7,25 @@ export const QuizForm = () => {
   const data = useSelector((state) => state.quiz);
   const dispatch = useDispatch();
   // console.log(data);
+  const [ans, setAns] = useState([
+    { option: "", isCorrect: false, id: 0 },
+    { option: "", isCorrect: false, id: 1 },
+    { option: "", isCorrect: false, id: 2 },
+    { option: "", isCorrect: false, id: 3 },
+  ]);
+
   const [quiz, setQuiz] = useState({
     title: "",
     questions: "",
-    options: ["", "", "", ""],
+    options: ans,
     correctAnswer: "",
   });
 
+  // console.log(ans);
+
   const handleQuiz = (event) => {
     event.preventDefault();
-
+    // console.log(ans, "ans");
     console.log(quiz);
     dispatch(quizSuccess(quiz));
   };
@@ -29,9 +38,21 @@ export const QuizForm = () => {
 
     dispatch(postQuizObj(obj));
   };
+  const handleType = (id) => (event) => {
+    const { name, value } = event.target;
+    setAns((prev) =>
+      ans?.map((item) =>
+        item.id === id
+          ? { ...item, [name]: value == "true" ? true : value }
+          : item
+      )
+    );
+    setQuiz({ ...quiz, options: ans });
+  };
+
   return (
-    <div className="w-64 text-slate-50">
-      <div className="text-lg text-yellow-300 font-bold font-serif mb-5">
+    <div className="w-96 text-slate-50">
+      <div className="text-lg text-yellow-300 font-bold font-serif mb-5 mt-5">
         Add Questions
       </div>
       <form>
@@ -69,17 +90,53 @@ export const QuizForm = () => {
           className="block uppercase tracking-wide  text-xs font-bold mb-2"
           htmlFor="grid-first-name"
         >
-          Options{" "}
+          Options
         </label>
-        <input
-          className=" block w-full bg-gray-200 text-gray-700 border rounded py-2 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
-          id="grid-first-name"
-          type="text"
-          placeholder="Options"
-          onChange={(event) =>
-            setQuiz({ ...quiz, options: [event.target.value.split(",")] })
-          }
-        />
+        <div className="">
+          {ans?.map((x) => {
+            return (
+              <div key={x.id} className="flex  gap-1 ">
+                <input
+                  className="w-1/2 block  bg-gray-200 text-gray-700 border rounded py-2 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+                  type="text"
+                  placeholder={`Option ${x.id}`}
+                  name="option"
+                  value={x.option}
+                  onChange={(e) => {
+                    handleType(x.id)(e);
+                  }}
+                />
+                <select
+                  className="form-select appearance-none
+                  block
+                  w-1/2
+                  px-3
+                h-9
+                  text-base
+                  font-normal
+                  text-gray-700
+                  bg-white bg-clip-padding bg-no-repeat
+                  border border-solid border-gray-300
+                  rounded
+                  transition
+                  ease-in-out
+                  m-0
+                  focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                  name="isCorrect"
+                  id=""
+                  v-model="allowMultiple"
+                  value={x.boolean}
+                  onChange={(e) => {
+                    handleType(x.id)(e);
+                  }}
+                >
+                  <option value="">Select the value</option>
+                  <option value={true}>true</option>
+                </select>
+              </div>
+            );
+          })}
+        </div>
         <label
           className="block uppercase tracking-wide  text-xs font-bold mb-2"
           htmlFor="grid-first-name"
