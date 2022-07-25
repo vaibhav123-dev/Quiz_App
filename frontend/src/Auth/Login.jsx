@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   login,
   useAuth,
@@ -21,6 +21,7 @@ export const Login = () => {
     email: "",
     password: "",
   });
+  const navigate = useNavigate();
 
   const currentUser = useAuth();
   console.log(currentUser);
@@ -40,6 +41,7 @@ export const Login = () => {
     try {
       await login(email, password).then(() => {
         dispatch(loginUserSuccess(userState));
+        navigate("/");
       });
     } catch (error) {
       dispatch(loginUserFailure(error));
@@ -61,6 +63,7 @@ export const Login = () => {
     e.preventDefault();
     try {
       await signInWithGoogle();
+      navigate("/");
     } catch (error) {
       alert(error);
     }

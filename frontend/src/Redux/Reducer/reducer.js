@@ -16,10 +16,14 @@ import {
   LOGOUT_USER_SUCCESS,
   POST_USER_FAILURE,
   POST_USER_REQUEST,
+  POST_USER_RESULT_FAILURE,
+  POST_USER_RESULT_REQUEST,
+  POST_USER_RESULT_SUCCESS,
   POST_USER_SUCCESS,
   REGISTER_USER_FAILURE,
   REGISTER_USER_REQUEST,
   REGISTER_USER_SUCCESS,
+  SET_USER_RESULT_SUCCESS,
 } from "../ActionType/actionType";
 
 const initialState = {
@@ -27,6 +31,7 @@ const initialState = {
   isError: false,
   userLogin: null,
   quiz: [],
+  result: null,
   thumbNails: [],
   singleQuiz: {},
   user: null,
@@ -99,6 +104,7 @@ export const reducer = (state = initialState, { type, payload }) => {
         isError: true,
       };
     case GET_SINGLE_QUIZ_REQUEST:
+    case POST_USER_RESULT_REQUEST:
       return {
         ...state,
         isLoading: true,
@@ -113,8 +119,10 @@ export const reducer = (state = initialState, { type, payload }) => {
         singleQuiz: payload,
       };
     case GET_SINGLE_QUIZ_FAILURE:
+    case POST_USER_RESULT_FAILURE:
       return {
         ...state,
+
         isLoading: false,
         isError: true,
       };
@@ -132,6 +140,20 @@ export const reducer = (state = initialState, { type, payload }) => {
         isError: false,
         userLogin: null,
         user: null,
+      };
+    case POST_USER_RESULT_SUCCESS:
+      return {
+        ...state,
+        isLoading: false,
+        isError: false,
+        user: payload,
+      };
+    case SET_USER_RESULT_SUCCESS:
+      return {
+        ...state,
+        isLoading: false,
+        isError: false,
+        result: payload,
       };
     default:
       return state;

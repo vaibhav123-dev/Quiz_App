@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getPostThumbnail, getSingleQuiz } from "../../Redux/Action/action";
 // import { TsParticle } from "../Particle/Tsparticle";
@@ -8,9 +9,11 @@ export const Dashboard = () => {
   const thumbnailData = useSelector((state) => state.thumbNails) || [];
   console.log(thumbnailData);
   const dispatch = useDispatch();
-
+  const navigate = useNavigate();
   const handleClick = (item) => {
     dispatch(getSingleQuiz(item.title));
+    localStorage.setItem("quiz", JSON.stringify(item.title));
+    navigate("/quizes");
   };
 
   useEffect(() => {
@@ -28,12 +31,7 @@ export const Dashboard = () => {
                 handleClick(item);
               }}
             >
-              <div
-                className="bg-slate-800 h-64 w-64 rounded-lg shadow-md bg-cover bg-center"
-                //   style={{
-                //     backgroundImage: `url(${item.url})`,
-                //   }}
-              >
+              <div className="bg-slate-800 h-64 w-64 rounded-lg shadow-md bg-cover bg-center">
                 <img
                   className="rounded-t-lg w-full h-48 "
                   src={item.url}

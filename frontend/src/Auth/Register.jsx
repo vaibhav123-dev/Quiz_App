@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { signup } from "../firebase";
 import {
   postUserToServer,
@@ -15,6 +16,7 @@ export const Register = () => {
     password: "",
     confirmPassword: "",
   });
+  const navigate = useNavigate();
 
   const dispatch = useDispatch();
 
@@ -37,6 +39,7 @@ export const Register = () => {
       await signup(email, password).then(() => {
         dispatch(registerUserSuccess(userState));
         dispatch(postUserToServer(userToServer));
+        navigate("/login");
       });
     } catch (error) {
       dispatch(registerUserFailure(error));

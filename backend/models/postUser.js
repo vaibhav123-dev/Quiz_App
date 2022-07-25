@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 const quizAttemptedSchema = new mongoose.Schema({
   quizId: { type: mongoose.Schema.Types.ObjectId, ref: "PostQuiz" },
-  markObtained: { type: Number },
+  quizResult: [],
 });
 const postUserSchema = new mongoose.Schema({
   name: { type: String },

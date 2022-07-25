@@ -17,10 +17,14 @@ import {
   LOGOUT_USER_SUCCESS,
   POST_USER_FAILURE,
   POST_USER_REQUEST,
+  POST_USER_RESULT_FAILURE,
+  POST_USER_RESULT_REQUEST,
+  POST_USER_RESULT_SUCCESS,
   POST_USER_SUCCESS,
   REGISTER_USER_FAILURE,
   REGISTER_USER_REQUEST,
   REGISTER_USER_SUCCESS,
+  SET_USER_RESULT_SUCCESS,
 } from "../ActionType/actionType";
 
 // Create quiz in redux store
@@ -129,6 +133,7 @@ export const getSingleQuiz = (title) => (dispatch) => {
   axios
     .get(`http://localhost:5000/admin/quiz/${title}`)
     .then((res) => {
+      console.log(res.data);
       dispatch(getSingleQuizSuccess(res.data));
     })
     .catch((err) => {
@@ -219,5 +224,45 @@ export const logoutUserFailure = (error) => {
   return {
     type: LOGOUT_USER_FAILURE,
     payload: error,
+  };
+};
+//post user result to the server
+export const postUserResultRequest = () => {
+  return {
+    type: POST_USER_RESULT_REQUEST,
+  };
+};
+
+export const postUserResultSuccess = (user) => {
+  return {
+    type: POST_USER_RESULT_SUCCESS,
+    payload: user,
+  };
+};
+export const postUserResultFailure = (error) => {
+  return {
+    type: POST_USER_RESULT_FAILURE,
+    payload: error,
+  };
+};
+
+export const postQuizResult = (obj) => (dispatch) => {
+  const { quizId, userId, quizResult } = obj;
+  dispatch(postUserResultRequest());
+  axios
+    .post(`http://localhost:5000/user/result/${userId}`, obj)
+    .then((res) => {
+      console.log(res.data);
+      dispatch(postUserResultSuccess(res.data));
+    })
+    .catch((err) => {
+      dispatch(postUserResultFailure(err));
+    });
+};
+
+export const postUserResult = (ans) => {
+  return {
+    type: SET_USER_RESULT_SUCCESS,
+    payload: ans,
   };
 };

@@ -11,7 +11,7 @@ import postThumb from "./controller/postThumbController.js";
 import getThumb from "./controller/getPostThumbController.js";
 import getsingleQuiz from "./controller/getQuizController.js";
 import postUser from "./controller/postUserController.js";
-
+import postResult from "./controller/postUserQuiz.js";
 const app = express();
 app.use(cors({ origin: "http://localhost:5000", credentials: true }));
 app.use(express.json());
@@ -25,6 +25,7 @@ app.use("/admin/thumbnail", postThumb);
 app.use("/admin/thumbnail", getThumb);
 app.use("/admin", getsingleQuiz);
 app.use("/admin/user", postUser);
+app.use("/user/result/", postResult);
 
 const connection = process.env.DB;
 const PORT = process.env.PORT || 5000;
