@@ -2,6 +2,7 @@ import React from "react";
 import "./Quiz.css";
 import { useEffect } from "react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import {
   getSingleQuiz,
@@ -15,7 +16,7 @@ export const Quiz = ({ questionArr }) => {
   const userID = user._id;
   const quizID = data[0]._id;
   const dispatch = useDispatch();
-
+  const navigate = useNavigate();
   const [num, setNum] = useState(0);
   const [ans, setAns] = useState([]);
   const [btnshow, setBtnshow] = useState(false);
@@ -80,6 +81,7 @@ export const Quiz = ({ questionArr }) => {
                   quizResult: ans,
                 };
                 dispatch(postQuizResult(obj));
+                navigate(`/quiz/${data[0].title}/result`);
               }}
             >
               Result

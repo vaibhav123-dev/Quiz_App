@@ -35,3 +35,5 @@ export const POST_USER_RESULT_SUCCESS = "POST_USER_RESULT_SUCCESS";
 export const POST_USER_RESULT_FAILURE = "POST_USER_RESULT_FAILURE";
 //post result to redux
 export const SET_USER_RESULT_SUCCESS = "SET_USER_RESULT_SUCCESS";
+//set login user to redux
+export const SET_LOGIN_USER = "SET_LOGIN_USER";

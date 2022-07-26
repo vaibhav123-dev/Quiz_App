@@ -1,6 +1,6 @@
 import React from "react";
 
 export const QuizResult = () => {
-    
-  return <div></div>;
+  console.log("hello");
+  return <div>Hello</div>;
 };

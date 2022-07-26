@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { signup } from "../firebase";
+import { signInWithGoogle, signup } from "../firebase";
+import { FcGoogle } from "react-icons/fc";
 import {
   postUserToServer,
   registerUserFailure,
@@ -29,12 +30,7 @@ export const Register = () => {
       name: displayName,
       email: email,
     };
-    // console.log(userState);
-    // if (password !== confirmPassword) {
-    //   alert("Passwords do not match");
-    // }
     dispatch(registerUserRequest());
-
     try {
       await signup(email, password).then(() => {
         dispatch(registerUserSuccess(userState));
@@ -47,6 +43,16 @@ export const Register = () => {
     }
   };
 
+  const googleLogin = async (e) => {
+    console.log("hello");
+    e.preventDefault();
+    try {
+      await signInWithGoogle();
+      navigate("/");
+    } catch (error) {
+      alert(error);
+    }
+  };
   return (
     <div>
       <section className="h-screen">
@@ -60,6 +66,23 @@ export const Register = () => {
               />
             </div>
             <div className="xl:ml-20 xl:w-5/12 lg:w-5/12 md:w-8/12 mb-12 md:mb-0">
+              <div className="flex flex-row items-center justify-center lg:justify-start">
+                <p className="text-lg mb-0 mr-4">Sign in with</p>
+
+                <button
+                  type="button"
+                  data-mdb-ripple="true"
+                  data-mdb-ripple-color="light"
+                  className="inline-block p-3 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out mx-1"
+                  onClick={googleLogin}
+                >
+                  <FcGoogle />
+                </button>
+              </div>
+
+              <div className="flex items-center my-4 before:flex-1 before:border-t before:border-gray-300 before:mt-0.5 after:flex-1 after:border-t after:border-gray-300 after:mt-0.5">
+                <p className="text-center font-semibold mx-4 mb-0">Or</p>
+              </div>
               <form>
                 <div className="mb-6">
                   <input

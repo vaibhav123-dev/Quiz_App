@@ -17,7 +17,7 @@ export const Home = () => {
         <Route path="/" element={<Dashboard />} />
         <Route path="/admin" element={<Admin />} />
         <Route path="/quizes" element={<Quizes />} />
-        <Route path="/quiz/result" element={<QuizResult />} />
+        <Route path="/quiz/:id/result" element={<QuizResult />} />
       </Routes>
     </div>
   );

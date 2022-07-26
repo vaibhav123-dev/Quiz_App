@@ -24,6 +24,7 @@ import {
   REGISTER_USER_FAILURE,
   REGISTER_USER_REQUEST,
   REGISTER_USER_SUCCESS,
+  SET_LOGIN_USER,
   SET_USER_RESULT_SUCCESS,
 } from "../ActionType/actionType";
 
@@ -207,6 +208,24 @@ export const postUserToServer = (user) => (dispatch) => {
     })
     .catch((err) => {
       dispatch(postUserFailure(err));
+    });
+};
+
+export const setLoginUser = (user) => {
+  return {
+    type: SET_LOGIN_USER,
+    payload: user,
+  };
+};
+export const getUserFromServer = (email) => (dispatch) => {
+  axios
+    .get(`http://localhost:5000/user/${email}`)
+    .then((res) => {
+      console.log(res.data);
+      dispatch(setLoginUser(res.data));
+    })
+    .catch((err) => {
+      console.log(err);
     });
 };
 

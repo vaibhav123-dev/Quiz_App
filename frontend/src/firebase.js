@@ -30,7 +30,10 @@ const firebaseConfig = {
   measurementId: "G-93V4PGY0R3",
 };
 
-const app = initializeApp(firebaseConfig);
+const app = initializeApp(firebaseConfig, {
+  experimentalForceLongPolling: true, // this line
+  useFetchStreams: false, // and this line  
+});
 export const auth = getAuth(app);
 const db = getFirestore(app);
 
@@ -113,9 +116,3 @@ export function useAuth() {
 
   return currentUser;
 }
-
-
-
-
-
-

@@ -3,6 +3,17 @@ import express from "express";
 import PostUser from "../models/postUser.js";
 const router = express.Router();
 
+router.get("/user/:value", async (req, res) => {
+  console.log(req.params.value, "req.params");
+  try {
+    const user = await PostUser.find({ email: req.params.value });
+    res.status(200).json(user);
+    console.log(user, "user");
+  } catch (error) {
+    res.status(400).json(error);
+  }
+});
+
 // router.get('/user/:id', async (req, res) => {
 //     console.log(req.params.id, 'hello')
 //     try {
@@ -30,7 +41,9 @@ router.post("/:id", async (req, res) => {
       {
         $addToSet: {
           quizAttempted: {
-            $each: [{ quizId: req.body.quizId, quizResult: req.body.quizResult }],
+            $each: [
+              { quizId: req.body.quizId, quizResult: req.body.quizResult },
+            ],
           },
         },
       },

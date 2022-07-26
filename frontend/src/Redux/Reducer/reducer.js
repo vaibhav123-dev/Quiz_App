@@ -23,6 +23,7 @@ import {
   REGISTER_USER_FAILURE,
   REGISTER_USER_REQUEST,
   REGISTER_USER_SUCCESS,
+  SET_LOGIN_USER,
   SET_USER_RESULT_SUCCESS,
 } from "../ActionType/actionType";
 
@@ -127,6 +128,7 @@ export const reducer = (state = initialState, { type, payload }) => {
         isError: true,
       };
     case POST_USER_SUCCESS:
+    case SET_LOGIN_USER:
       return {
         ...state,
         isLoading: false,
