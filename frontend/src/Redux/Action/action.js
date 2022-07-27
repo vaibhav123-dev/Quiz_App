@@ -119,7 +119,7 @@ export const getPostThumbnail = () => (dispatch) => {
   console.log("hello");
   dispatch(getThumbnailRequest());
   axios
-    .get("http://localhost:5000/admin/thumbnail")
+    .get("/admin/thumbnail")
     .then((res) => {
       console.log(res.data);
       dispatch(getThumbnailSuccess(res.data));
