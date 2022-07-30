@@ -26,7 +26,7 @@ export const Quiz = ({ questionArr }) => {
     setDisable(index);
   };
   return (
-    <div className=" h-96 pt-5 bg-cyan-900">
+    <div className=" h-96  bg-cyan-900 pt-52">
       <div className="w-full text-center">
         <div className="flex justify-between align-middle">
           <div className="w-16  h-16">

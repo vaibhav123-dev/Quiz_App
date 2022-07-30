@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import PostQuiz from "../models/PostQuiz.js";
+import PostQuiz from "../models/postQuiz.js";
 import express from "express";
 const router = express.Router();
 

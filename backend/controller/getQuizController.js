@@ -1,5 +1,5 @@
 import express from "express";
-import PostQuiz from "../models/PostQuiz.js";
+import PostQuiz from "../models/postQuiz.js";
 const router = express.Router();
 
 router.get("/quiz/:value", async (req, res) => {

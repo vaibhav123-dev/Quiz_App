@@ -55,25 +55,27 @@ export const Register = () => {
   };
   return (
     <div>
-      <section className="h-screen">
+      <section className="h-screen pt-40 ">
         <div className="px-6 h-full text-gray-800">
           <div className="flex xl:justify-center lg:justify-between justify-center items-center flex-wrap h-full g-6">
-            <div className="grow-0 shrink-1 md:shrink-0 basis-auto xl:w-6/12 lg:w-6/12 md:w-9/12 mb-12 md:mb-0">
+            <div className="grow-0 shrink-1 md:shrink-0 basis-auto xl:w-6/12 lg:w-6/12 md:w-9/12 mb-12 md:mb-0 ml-10 md:mt-16">
               <img
-                src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
-                className="w-full"
+                src="./login.gif"
+                className="w-5/6 h-11/12 md:w-full"
                 alt="Sample image"
               />
             </div>
-            <div className="xl:ml-20 xl:w-5/12 lg:w-5/12 md:w-8/12 mb-12 md:mb-0">
-              <div className="flex flex-row items-center justify-center lg:justify-start">
-                <p className="text-lg mb-0 mr-4">Sign in with</p>
+            <div className=" xl:w-5/12 lg:w-5/12 md:w-full mr-5 mb-12 md:mb-0 md:mx-auto mt-4">
+              <div className="flex flex-row items-center justify-center mt-4">
+                <p className="text-lg mb-0 mr-4 md:m-0 text-white">
+                  Sign in with
+                </p>
 
                 <button
                   type="button"
                   data-mdb-ripple="true"
                   data-mdb-ripple-color="light"
-                  className="inline-block p-3 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out mx-1"
+                  className="inline-block p-3  bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out mx-1"
                   onClick={googleLogin}
                 >
                   <FcGoogle />
@@ -81,7 +83,9 @@ export const Register = () => {
               </div>
 
               <div className="flex items-center my-4 before:flex-1 before:border-t before:border-gray-300 before:mt-0.5 after:flex-1 after:border-t after:border-gray-300 after:mt-0.5">
-                <p className="text-center font-semibold mx-4 mb-0">Or</p>
+                <p className="text-center font-semibold mx-4 mb-0 text-white">
+                  Or
+                </p>
               </div>
               <form>
                 <div className="mb-6">
@@ -143,7 +147,7 @@ export const Register = () => {
                       id="exampleCheck2"
                     />
                     <label
-                      className="form-check-label inline-block text-gray-800"
+                      className="form-check-label inline-block text-white text-sm"
                       for="exampleCheck2"
                     >
                       Remember me
@@ -151,10 +155,10 @@ export const Register = () => {
                   </div>
                 </div>
 
-                <div className="text-center lg:text-left">
+                <div className="text-center lg:text-center">
                   <button
                     type="button"
-                    className="inline-block px-7 py-3 bg-blue-600 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
+                    className="inline-block px-7 py-3 md:py=5 bg-blue-600 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
                     onClick={handleRegistration}
                   >
                     Register

@@ -9,10 +9,10 @@ import { Register } from "../../Auth/Register";
 import { QuizResult } from "../../components/Quiz/QuizResult";
 export const Home = () => {
   return (
-    <div>
+    <div className="">
       <Navbar />
       <Routes>
-        <Route path="/register" element={<Register />} />
+        <Route path="/signup" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="/" element={<Dashboard />} />
         <Route path="/admin" element={<Admin />} />

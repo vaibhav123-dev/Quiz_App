@@ -4,7 +4,7 @@ import { TsParticle } from "./components/Particle/Tsparticle";
 
 function App() {
   return (
-    <div className="bg-slate-700">
+    <div className="">
       <TsParticle />
       <Home />
     </div>

@@ -94,7 +94,7 @@ export const getSingleQuizFailure = (error) => {
 export const postQuizObj = (obj) => (dispatch) => {
   // console.log(obj);
   axios
-    .post("http://localhost:5000/admin", obj)
+    .post("https://quiz-application-mern.herokuapp.com/admin", obj)
     .then((res) => {
       console.log(res.data);
     })
@@ -106,7 +106,7 @@ export const postQuizObj = (obj) => (dispatch) => {
 export const postThumbnail = (obj) => (dispatch) => {
   console.log(obj);
   axios
-    .post("http://localhost:5000/admin/thumbnail", obj)
+    .post("https://quiz-application-mern.herokuapp.com/admin/thumbnail", obj)
     .then((res) => {
       console.log(res.data);
     })
@@ -119,7 +119,7 @@ export const getPostThumbnail = () => (dispatch) => {
   console.log("hello");
   dispatch(getThumbnailRequest());
   axios
-    .get("/admin/thumbnail")
+    .get("https://quiz-application-mern.herokuapp.com/admin/thumbnail")
     .then((res) => {
       console.log(res.data);
       dispatch(getThumbnailSuccess(res.data));
@@ -132,7 +132,7 @@ export const getPostThumbnail = () => (dispatch) => {
 export const getSingleQuiz = (title) => (dispatch) => {
   dispatch(getSingleQuizRequest());
   axios
-    .get(`http://localhost:5000/admin/quiz/${title}`)
+    .get(`https://quiz-application-mern.herokuapp.com/admin/quiz/${title}`)
     .then((res) => {
       console.log(res.data);
       dispatch(getSingleQuizSuccess(res.data));
@@ -202,7 +202,7 @@ export const postUserFailure = (error) => {
 export const postUserToServer = (user) => (dispatch) => {
   dispatch(postUserRequest());
   axios
-    .post("http://localhost:5000/admin/user", user)
+    .post("https://quiz-application-mern.herokuapp.com/admin/user", user)
     .then((res) => {
       dispatch(postUserSuccess(res.data));
     })
@@ -218,10 +218,11 @@ export const setLoginUser = (user) => {
   };
 };
 export const getUserFromServer = (email) => (dispatch) => {
+  console.log(email);
   axios
-    .get(`http://localhost:5000/user/${email}`)
+    .get(`https://quiz-application-mern.herokuapp.com/user/${email}`)
     .then((res) => {
-      console.log(res.data);
+      console.log(res.data, "res.data");
       dispatch(setLoginUser(res.data));
     })
     .catch((err) => {
@@ -269,7 +270,10 @@ export const postQuizResult = (obj) => (dispatch) => {
   const { quizId, userId, quizResult } = obj;
   dispatch(postUserResultRequest());
   axios
-    .post(`http://localhost:5000/user/result/${userId}`, obj)
+    .post(
+      `https://quiz-application-mern.herokuapp.com/user/result/${userId}`,
+      obj
+    )
     .then((res) => {
       console.log(res.data);
       dispatch(postUserResultSuccess(res.data));
