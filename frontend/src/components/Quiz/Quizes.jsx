@@ -6,8 +6,8 @@ import { Quiz } from "./Quiz";
 export const Quizes = () => {
   const singleQuiz = useSelector((state) => state?.singleQuiz);
   const [isLoading, setLoading] = useState(true);
-  const questionArr = singleQuiz[0]?.questionArray;
-  console.log(questionArr);
+  // const questionArr = singleQuiz[0]?.questionArray;
+  // console.log(questionArr);
 
   useEffect(() => {
     setTimeout(() => {
@@ -15,5 +15,22 @@ export const Quizes = () => {
     }, 3000);
   }, []);
 
+  const questionArr = [
+    {
+      title: "html",
+      questions: "HTML stands for -",
+      options: [
+        { option: "HighText Machine Language", isCorrect: false, id: 0 },
+        {
+          option: "HyperText and links Markup Language",
+          isCorrect: false,
+          id: 1,
+        },
+        { option: "HyperText Markup Language", isCorrect: true, id: 2 },
+        { option: "None of these", isCorrect: false, id: 3 },
+      ],
+      correctAnswer: "HyperText Markup Language",
+    },
+  ];
   return isLoading ? <div>...loading</div> : <Quiz questionArr={questionArr} />;
 };

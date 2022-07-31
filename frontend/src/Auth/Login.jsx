@@ -86,24 +86,19 @@ export const Login = () => {
                 <div className="mb-6">
                   <input
                     type="text"
-                    className="input input-bordered input-accent w-full max-w-xs"
+                    className="input input-bordered input-accent w-full max-w-xs text-white"
                     id="exampleFormControlInput2"
                     placeholder="Email address"
                     onChange={(e) => {
                       setUserState({ ...userState, email: e.target.value });
                     }}
                   />
-
-                  {/* <input
-                    type="text"
-                    className="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-slate-700 bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                  /> */}
                 </div>
 
                 <div className="mb-6">
                   <input
                     type="password"
-                    className="input input-bordered input-accent w-full max-w-xs"
+                    className="input input-bordered input-accent w-full max-w-xs text-white"
                     id="exampleFormControlInput2"
                     placeholder="Password"
                     onChange={(e) =>
@@ -113,27 +108,7 @@ export const Login = () => {
                 </div>
 
                 <div className="flex justify-between items-center mb-6">
-                  <div className="form-group form-check">
-                    {/* <input
-                      type="checkbox"
-                      className="checkbox checkbox-accent "
-                      id="exampleCheck2"
-                    />
-                    <label
-                      className="form-check-label inline-block text-white text-sm"
-                      for="exampleCheck2"
-                    >
-                      Remember me
-                    </label> */}
-                    <label className="cursor-pointer label">
-                      <input
-                        type="checkbox"
-                        checked="checked"
-                        className="checkbox checkbox-secondary mr-1"
-                      />
-                      <span className="label-text">Remember me</span>
-                    </label>
-                  </div>
+                  <div className="form-group form-check"></div>
                   <p onClick={resetPass} className="label-text text-sm">
                     Forgot password?
                   </p>
@@ -151,7 +126,7 @@ export const Login = () => {
                     Don't have an account ?
                     <Link
                       className="text-red-600 m-2 hover:text-red-700 focus:text-red-700 transition duration-200 ease-in-out"
-                      to="/register"
+                      to="/signup"
                     >
                       Register
                     </Link>

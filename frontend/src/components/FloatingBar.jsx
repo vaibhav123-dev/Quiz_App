@@ -1,18 +1,22 @@
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
 
 export const FloatingBar = () => {
+  const user = useSelector((state) => state.user) || [];
+
+  console.log(user);
   const [isShow, setIsShow] = useState(false);
   return (
     <div>
       {!isShow ? (
-        <aside className="fixed z-50 flex items-center justify-center px-5 py-3 transition ease-in-out delay-150 duration-300 text-white bg-black rounded-lg bottom-4 right-4">
+        <aside className="shadow-lg shadow-indigo-500/50 fixed z-50 flex items-center justify-center px-5 py-3 transition ease-in-out delay-150 duration-300 text-white bg-black rounded-lg bottom-4 right-4">
           <a
             href="/new-thing"
             target="_blank"
             rel="noopener noreferrer"
             className="text-sm font-medium hover:opacity-75"
           >
-            Hey! Come Check This Out 👋
+            Welcome {user[0]?.name}👋
           </a>
 
           <button
@@ -35,7 +39,7 @@ export const FloatingBar = () => {
           </button>
         </aside>
       ) : (
-        <aside className="fixed z-50 flex items-center justify-center px-5 py-2 transition ease-in-out delay-150 duration-300 text-white bg-black rounded-lg bottom-4 right-4">
+        <aside className="shadow-lg shadow-indigo-500/50 fixed z-50 flex items-center justify-center px-5 py-2 transition ease-in-out delay-150 duration-300 text-white bg-black rounded-lg bottom-4 right-4">
           <button
             className="p-1 ml-1 rounded bg-white/20 hover:bg-white/10"
             aria-label="Dismiss Popup"

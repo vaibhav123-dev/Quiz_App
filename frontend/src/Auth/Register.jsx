@@ -91,7 +91,7 @@ export const Register = () => {
                 <div className="mb-6">
                   <input
                     type="text"
-                    className="input input-bordered input-accent w-full max-w-xs"
+                    className="input input-bordered input-accent w-full max-w-xs text-white"
                     id="exampleFormControlInput2"
                     placeholder="Name..."
                     onChange={(e) =>
@@ -105,7 +105,7 @@ export const Register = () => {
                 <div className="mb-6">
                   <input
                     type="text"
-                    className="input input-bordered input-accent w-full max-w-xs"
+                    className="input input-bordered input-accent w-full max-w-xs text-white"
                     id="exampleFormControlInput2"
                     placeholder="Email address"
                     onChange={(e) =>
@@ -117,7 +117,7 @@ export const Register = () => {
                 <div className="mb-6">
                   <input
                     type="password"
-                    className="input input-bordered input-accent w-full max-w-xs"
+                    className="input input-bordered input-accent w-full max-w-xs text-white"
                     id="exampleFormControlInput2"
                     placeholder="Password"
                     onChange={(e) =>
@@ -128,7 +128,7 @@ export const Register = () => {
                 <div className="mb-6">
                   <input
                     type="password"
-                    className="input input-bordered input-accent w-full max-w-xs"
+                    className="input input-bordered input-accent w-full max-w-xs text-white"
                     id="exampleFormControlInput2"
                     placeholder="Confirm Password"
                     onChange={(e) =>
