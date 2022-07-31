@@ -2,10 +2,10 @@ import React from "react";
 
 export const Pagination = () => {
   return (
-    <div className="shadow-lg shadow-indigo-500/50 m-4">
+    <div className="m-4">
       <ol className="flex justify-center space-x-1 text-xs font-medium">
         <li>
-          <p className="inline-flex items-center justify-center w-8 h-8 border border-gray-100 rounded">
+          <p className="inline-flex items-center justify-center w-8 h-8 border border-black text-black rounded">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="w-3 h-3 animate-ping"
@@ -22,32 +22,32 @@ export const Pagination = () => {
         </li>
 
         <li>
-          <p className="block w-8 h-8 leading-8 text-center border border-gray-100 rounded">
+          <p className="block w-8 h-8 leading-8 text-center border border-black text-black rounded">
             {" "}
             1{" "}
           </p>
         </li>
 
-        <li className="block w-8 h-8 leading-8 text-center border border-gray-100 text-white rounded">
+        <li className="block w-8 h-8 leading-8 text-center border border-black text-black rounded">
           2
         </li>
 
         <li>
-          <p className="block w-8 h-8 leading-8 text-center border border-gray-100 rounded">
+          <p className="block w-8 h-8 leading-8 text-center border border-black text-black rounded">
             {" "}
             3{" "}
           </p>
         </li>
 
         <li>
-          <p className="block w-8 h-8 leading-8 text-center border border-gray-100 rounded">
+          <p className="block w-8 h-8 leading-8 text-center border border-black text-black rounded">
             {" "}
             4{" "}
           </p>
         </li>
 
         <li>
-          <p className="inline-flex items-center justify-center w-8 h-8 border border-gray-100 rounded">
+          <p className="inline-flex items-center justify-center w-8 h-8 border border-black text-black  rounded">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="w-3 h-3 animate-ping"

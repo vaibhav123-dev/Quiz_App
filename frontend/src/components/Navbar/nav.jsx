@@ -5,13 +5,13 @@ export const Nav = () => {
   const [isSearched, setIsSearched] = useState(false);
   return (
     <div>
-      <div className="navbar bg-base-100 fixed w-full z-50 overflow-y-hidden shadow-lg shadow-indigo-500/50 ">
+      <div className="navbar bg-base-100 fixed w-full z-50 overflow-y-hidden shadow-lg shadow-black ">
         <div className="navbar-start">
           <div className="">
             <label tabindex="0" className="btn btn-ghost btn-circle">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5"
+                className="h-5 w-5 animate-pulse"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -30,7 +30,9 @@ export const Nav = () => {
           </div>
         </div>
         <div className="navbar-center">
-          <a className="btn btn-ghost normal-case text-xl"></a>
+          <a className="btn btn-ghost normal-case text-xl shadow-lg shadow-black">
+            QuizMe
+          </a>
         </div>
         <div className="navbar-end">
           <button className="btn btn-ghost btn-circle">
@@ -76,7 +78,7 @@ export const Nav = () => {
       {isOpen ? (
         <ul
           tabindex="0"
-          className="absolute top-20 text-center shadow-lg shadow-indigo-500/50 p-2 bg-base-100 rounded-box w-52 "
+          className="absolute top-20 text-center shadow-lg shadow-black p-2 bg-base-100 rounded-box w-52 "
         >
           <li className="m-2">
             <a>Homepage</a>

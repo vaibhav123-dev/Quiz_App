@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
+import { Loader } from "../Loader";
 import { Quiz } from "./Quiz";
 
 export const Quizes = () => {
@@ -32,5 +33,5 @@ export const Quizes = () => {
       correctAnswer: "HyperText Markup Language",
     },
   ];
-  return isLoading ? <div>...loading</div> : <Quiz questionArr={questionArr} />;
+  return isLoading ? <Loader /> : <Quiz questionArr={questionArr} />;
 };

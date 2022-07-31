@@ -26,13 +26,13 @@ export const Quiz = ({ questionArr }) => {
     setDisable(index);
   };
   return (
-    <div className="pt-20 md:pt-20 shadow-lg shadow-indigo-500/50">
+    <div className=" pt-48 md:pt-56 shadow-lg shadow-black">
       <div className=" h-screen  ">
         <div className="w-1/2 mx-auto text-center md:w-full">
           <div className="flex items-center justify-between ">
-            <div className="w-16  h-16  ">
+            <div className="flex">
               <svg
-                className="w-8 h-8 animate-spin mt-5 ml-5 shadow-lg shadow-indigo-500/50 rounded-xl"
+                className="w-6 h-6 mr-2 text-black animate-ping shadow-lg shadow-black"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -42,17 +42,16 @@ export const Quiz = ({ questionArr }) => {
                   stroke-linecap="round"
                   stroke-linejoin="round"
                   stroke-width="2"
-                  d="M14 10l-2 1m0 0l-2-1m2 1v2.5M20 7l-2 1m2-1l-2-1m2 1v2.5M14 4l-2-1-2 1M4 7l2-1M4 7l2 1M4 7v2.5M12 21l-2-1m2 1l2-1m-2 1v-2.5M6 18l-2-1v-2.5M18 18l2-1v-2.5"
+                  d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
                 ></path>
               </svg>
-            </div>
-            <div>
-              <h1 className="text-sm m-2 text-white">
+
+              <h1 className="text-sm  text-black  font-medium">
                 {questionArr[num]?.questions}
               </h1>
             </div>
             <div className=" md:mr-4 inline-flex items-center justify-center px-2 py-1 h-6  text-xs font-bold  text-red-100 bg-emerald-600 rounded-full">
-              {num + "/" + (questionArr.length - 1)}
+              {num + " / " + (questionArr.length - 1)}
             </div>
           </div>
           <ol
@@ -64,8 +63,8 @@ export const Quiz = ({ questionArr }) => {
                 key={answer._id}
                 className={
                   index == disable && disable != null
-                    ? "show border border-gray-300 text-center m-2 p-2 text-black rounded-lg shadow-lg shadow-indigo-500/50"
-                    : `notshow border border-gray-300 text-center m-2 p-2 text-black rounded-lg shadow-lg shadow-indigo-500/50`
+                    ? "show border  text-center m-2 p-2 text-black btn btn-outline rounded-lg shadow-md shadow-black"
+                    : `notshow border  text-center m-2 p-2 text-black btn btn-outline rounded-lg shadow-md shadow-black`
                 }
                 onClick={(e) => {
                   setAns([...ans, answer.option]);
@@ -79,7 +78,7 @@ export const Quiz = ({ questionArr }) => {
           </ol>
           <div className="mt-3 ml-5">
             <button
-              className="bg-blue-500 shadow-lg shadow-indigo-500/50 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-1"
+              className=" shadow-lg shadow-black btn btn-outline text-black btn-sm rounded mr-1 ml-2"
               onClick={() => {
                 setNum(num + 1);
                 setDisable(null);
@@ -89,7 +88,7 @@ export const Quiz = ({ questionArr }) => {
             </button>
             {btnshow ? (
               <button
-                className="bg-blue-500 shadow-lg shadow-indigo-500/50 hover:bg-blue-700 text-white font-bold py-2 px-3 rounded mr-1"
+                className="shadow-lg shadow-black btn btn-outline text-black btn-sm rounded "
                 onClick={() => {
                   dispatch(postUserResult(ans));
                   // const obj = {
@@ -105,7 +104,7 @@ export const Quiz = ({ questionArr }) => {
               </button>
             ) : (
               <button
-                className="bg-blue-500 shadow-lg shadow-indigo-500/50 hover:bg-blue-700 text-white font-bold py-2 px-3 rounded mr-1"
+                className="shadow-lg shadow-black btn btn-outline text-black btn-sm rounded mr-1"
                 onClick={() => {
                   setNum(num + 1);
                   setDisable(null);

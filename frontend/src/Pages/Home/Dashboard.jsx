@@ -7,6 +7,7 @@ import { Carousel } from "../../components/Carousel/Carousel";
 import { Pagination } from "../../components/Pagination";
 import { FloatingBar } from "../../components/FloatingBar";
 import { Footer } from "../../components/Footer/Footer";
+import { Loader } from "../../components/Loader";
 // import { TsParticle } from "../Particle/Tsparticle";
 
 export const Dashboard = () => {
@@ -28,10 +29,10 @@ export const Dashboard = () => {
   return (
     <div>
       {/* <Carousel /> */}
-      <div className="grid grid-cols-4 md:grid-cols-1 pt-28 md:pt-44 shadow-lg shadow-indigo-500/50">
+      <div className="grid grid-cols-4 md:grid-cols-1 pt-28 md:pt-44  ">
         {thumbnailData.map((item) => {
           return (
-            <div className=" shadow-lg shadow-indigo-500/50  rounded-2xl h-80 w-72 m-10 ">
+            <div className=" shadow-lg shadow-black  rounded-2xl h-80 w-72 m-10 ">
               <div className="flex justify-center pt-12">
                 <img
                   src={item.url}

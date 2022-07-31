@@ -1,6 +1,10 @@
 .show {
-  background-color: rgb(156, 58, 161);
+  background-color: rgb(90, 181, 146);
 }
 .notshow {
-  background-color: white;
+  background-color: transparent;
 }
+
+/* .quiz {
+  background-color: linear-gradient(to top right, red 50%, rgb(58, 172, 26) 50%);
+} */

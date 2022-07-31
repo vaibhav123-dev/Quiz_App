@@ -10,7 +10,7 @@ import { Footer } from "../../components/Footer/Footer";
 import { Nav } from "../../components/Navbar/Nav";
 export const Home = () => {
   return (
-    <div className="">
+    <div className="bg-gradient-to-tr from-pink-400 via-indigo-500  to-cyan-300">
       {/* <Navbar /> */}
       <Nav />
       <Routes>
