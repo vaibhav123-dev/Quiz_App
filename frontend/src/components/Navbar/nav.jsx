@@ -1,8 +1,10 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router";
 
 export const Nav = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isSearched, setIsSearched] = useState(false);
+  const navigate = useNavigate();
   return (
     <div>
       <div className="navbar bg-base-100 fixed w-full z-50 overflow-y-hidden shadow-lg shadow-black ">
@@ -30,9 +32,14 @@ export const Nav = () => {
           </div>
         </div>
         <div className="navbar-center">
-          <a className="btn btn-ghost normal-case text-xl shadow-lg shadow-black">
+          <p
+            className="btn btn-ghost normal-case text-xl shadow-lg shadow-black"
+            onClick={() => {
+              navigate("/");
+            }}
+          >
             QuizMe
-          </a>
+          </p>
         </div>
         <div className="navbar-end">
           <button className="btn btn-ghost btn-circle">
@@ -81,13 +88,31 @@ export const Nav = () => {
           className="absolute top-20 text-center shadow-lg shadow-black p-2 bg-base-100 rounded-box w-52 "
         >
           <li className="m-2">
-            <a>Homepage</a>
+            <p
+              onClick={() => {
+                navigate("/");
+              }}
+            >
+              Homepage
+            </p>
           </li>
           <li className="m-2">
-            <a>Login</a>
+            <p
+              onClick={() => {
+                navigate("/login");
+              }}
+            >
+              Login
+            </p>
           </li>
           <li className="m-2">
-            <a>Signup</a>
+            <p
+              onClick={() => {
+                navigate("/signup");
+              }}
+            >
+              Signup
+            </p>
           </li>
         </ul>
       ) : null}
@@ -98,7 +123,9 @@ export const Nav = () => {
             placeholder="Type here"
             className="input input-bordered input-success w-full px-5"
           />
-          <button className="btn btn-outline btn-success">Success</button>
+          <button className="btn btn-outline btn-default text-black">
+            Success
+          </button>
         </div>
       ) : null}
     </div>

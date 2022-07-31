@@ -21,7 +21,6 @@ export const Home = () => {
         <Route path="/quiz/:id" element={<Quizes />} />
         <Route path="/quiz/:id/result" element={<QuizResult />} />
       </Routes>
-      <Footer />
     </div>
   );
 };

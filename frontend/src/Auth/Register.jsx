@@ -9,6 +9,8 @@ import {
   registerUserRequest,
   registerUserSuccess,
 } from "../Redux/Action/action";
+import { Nav } from "../components/Navbar/Nav";
+import { Footer } from "../components/Footer/Footer";
 
 export const Register = () => {
   const [userState, setUserState] = useState({
@@ -166,6 +168,7 @@ export const Register = () => {
           </div>
         </div>
       </section>
+      <Footer />
     </div>
   );
 };

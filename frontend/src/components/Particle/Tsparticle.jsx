@@ -69,10 +69,10 @@ export const TsParticle = () => {
             },
           },
           shape: {
-            type: "square",
+            type: "triangle",
           },
           size: {
-            value: { min: 1, max: 5 },
+            value: { min: 1, max: 2 },
           },
         },
       }}

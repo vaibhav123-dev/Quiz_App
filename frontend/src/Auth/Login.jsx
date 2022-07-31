@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
+import { Footer } from "../components/Footer/Footer";
+import { Nav } from "../components/Navbar/Nav";
 import {
   login,
   useAuth,
@@ -136,6 +138,7 @@ export const Login = () => {
             </div>
           </div>
         </div>
+        <Footer />
       </section>
     </div>
   );

@@ -3,7 +3,6 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getPostThumbnail, getSingleQuiz } from "../../Redux/Action/action";
-import { Carousel } from "../../components/Carousel/Carousel";
 import { Pagination } from "../../components/Pagination";
 import { FloatingBar } from "../../components/FloatingBar";
 import { Footer } from "../../components/Footer/Footer";
@@ -13,6 +12,7 @@ import { Loader } from "../../components/Loader";
 export const Dashboard = () => {
   const thumbnailData = useSelector((state) => state.thumbNails) || [];
   console.log(thumbnailData);
+  const [isLoading, setLoading] = useState(true);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -25,10 +25,12 @@ export const Dashboard = () => {
 
   useEffect(() => {
     dispatch(getPostThumbnail());
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
   }, []);
-  return (
+  return !isLoading ? (
     <div>
-      {/* <Carousel /> */}
       <div className="grid grid-cols-4 md:grid-cols-1 pt-28 md:pt-44  ">
         {thumbnailData.map((item) => {
           return (
@@ -53,6 +55,9 @@ export const Dashboard = () => {
       </div>
       <Pagination />
       <FloatingBar />
+      <Footer />
     </div>
+  ) : (
+    <Loader />
   );
 };

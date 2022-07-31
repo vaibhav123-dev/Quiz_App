@@ -19,3 +19,46 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
+
+.loader {
+  position: relative;
+  left: 46.5%;
+  top: 20rem;
+  width: 120px;
+  height: 120px;
+}
+@media screen and (max-width: 600px) {
+  .loader {
+    left: 34.5%;
+    top: 20rem;
+    width: 120px;
+    height: 120px;
+  }
+}
+  
+
+.loader div {
+  position: absolute;
+  border: 4px solid rgb(0, 255, 221);
+  border-radius: 50%;
+  animation: loader 1s ease-out infinite;
+}
+.loader div:nth-child(2) {
+  animation-delay: -0.5s;
+}
+@keyframes loader {
+  0% {
+    top: 50px;
+    left: 55px;
+    width: 0;
+    height: 0;
+    opacity: 1;
+  }
+  100% {
+    top: 0px;
+    left: 0px;
+    width: 120px;
+    height: 120px;
+    opacity: 0;
+  }
+}

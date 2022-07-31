@@ -1,5 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import { Footer } from "../Footer/Footer";
 
 export const QuizResult = () => {
   const quizArray = useSelector((state) => state.singleQuiz);
@@ -7,9 +8,9 @@ export const QuizResult = () => {
   const quiz = quizArray[0]?.questionArray;
   console.log("hello");
   return (
-    <div className="absolute w-full top-32 text-center md:top-60">
+    <div className="absolute w-full top-32 text-center bg-gradient-to-tr from-pink-400 via-indigo-500  to-cyan-300 md:top-60 ">
       <div className="overflow-x-auto relative ">
-        <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+        <table className="w-full text-sm text-left text-black">
           <thead className="text-xs text-gray-900 uppercase dark:text-emerald-500 ">
             <tr>
               <th scope="col" className="py-3 px-6">
@@ -29,10 +30,10 @@ export const QuizResult = () => {
           {quiz?.map((question, index) => {
             return (
               <tbody className="">
-                <tr className="bg-white dark:bg-gray-800">
+                <tr className="bg-white ">
                   <th
                     scope="row"
-                    className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                    className="py-4 px-6 font-medium text-gray-900 "
                   >
                     {question.questions}{" "}
                   </th>
@@ -55,6 +56,7 @@ export const QuizResult = () => {
           })}
         </table>
       </div>
+      <Footer />
     </div>
   );
 };

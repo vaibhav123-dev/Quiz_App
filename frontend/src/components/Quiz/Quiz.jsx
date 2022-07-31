@@ -13,8 +13,8 @@ import {
 export const Quiz = ({ questionArr }) => {
   const data = useSelector((state) => state.singleQuiz);
   const user = useSelector((state) => state.user);
-  // const userID = user._id;
-  // const quizID = data[0]._id;
+  const userID = user._id;
+  const quizID = data[0]._id;
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [num, setNum] = useState(0);
@@ -91,13 +91,13 @@ export const Quiz = ({ questionArr }) => {
                 className="shadow-lg shadow-black btn btn-outline text-black btn-sm rounded "
                 onClick={() => {
                   dispatch(postUserResult(ans));
-                  // const obj = {
-                  //   quizId: quizID,
-                  //   userId: userID,
-                  //   quizResult: ans,
-                  // };
-                  // dispatch(postQuizResult(obj));
-                  // navigate(`/quiz/${data[0].title}/result`);
+                  const obj = {
+                    quizId: quizID,
+                    userId: userID,
+                    quizResult: ans,
+                  };
+                  dispatch(postQuizResult(obj));
+                  navigate(`/quiz/${data[0].title}/result`);
                 }}
               >
                 Result
